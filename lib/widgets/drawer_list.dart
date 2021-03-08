@@ -54,7 +54,7 @@ class DrawerList extends StatelessWidget {
               title: Text("Logout"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () => _onClickLogout(context),
-            )
+            ),
           ],
         ),
       ),

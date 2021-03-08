@@ -83,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           StreamBuilder<bool>(
               stream: _streamController.stream,
+              initialData: false, // seta dados iniciando com false
               builder: (context, snapshot) {
                 return AppButton(
                   "Login",
@@ -134,5 +135,12 @@ class _LoginPageState extends State<LoginPage> {
       return "A Senha precisa ter pelo menos 3 numeros";
     }
     return null;
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _streamController.close();
   }
 }
