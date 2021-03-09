@@ -32,21 +32,6 @@ class CarrosApi {
     List list = convert.json.decode(json);
     final carros = list.map<Carro>((map) => Carro.fromJson(map)).toList();
 
-    //igual a sintaxe acima
-    // final carros = list.map<Carro>((map) {
-    //   return Carro.fromJson(map);
-    // }).toList();
-
-    // final carros = List<Carro>();
-
-    // for (Map map in list) {
-    //   Carro c = Carro.fromJson(map);
-    //   carros.add(c);
-    // }
-
-    print(">>>>>>>>>>>>>> getCarros ANTES2");
     return carros;
-
-    //return list.map<Carro>((map) => Carro.fromJson(map)).toList();
   }
 }
