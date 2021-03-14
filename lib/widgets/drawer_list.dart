@@ -10,6 +10,7 @@ class DrawerList extends StatelessWidget {
       accountEmail: Text(user.email),
       currentAccountPicture: CircleAvatar(
         backgroundImage: NetworkImage(user.urlFoto),
+        //teste
       ),
     );
   }
@@ -32,7 +33,7 @@ class DrawerList extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.star),
               title: Text("Favoritos"),
-              subtitle: Text("mais informações.."),
+              subtitle: Text("mais informaï¿½ï¿½es.."),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 print("Item 1 ...");
@@ -42,7 +43,7 @@ class DrawerList extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.help),
               title: Text("Ajuda"),
-              subtitle: Text("mais informações.."),
+              subtitle: Text("mais informaï¿½ï¿½es.."),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
                 print("Ajuda 1 ...");
