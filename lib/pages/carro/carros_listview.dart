@@ -82,7 +82,7 @@ class _CarrosListViewState extends State<CarrosListView>
                     style: TextStyle(fontSize: 25),
                   ),
                   Text(
-                    "Descrição",
+                    "Descriï¿½ï¿½o",
                     style: TextStyle(fontSize: 16),
                   ),
                   ButtonBarTheme(
