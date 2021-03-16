@@ -1,16 +1,29 @@
+import 'package:carros/pages/carro/loripsum_api.dart';
 import 'package:carros/widgets/text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carros/pages/carro/carro.dart';
 
-class CarroPage extends StatelessWidget {
+class CarroPage extends StatefulWidget {
   Carro carro;
   CarroPage(this.carro);
+
+  @override
+  _CarroPageState createState() => _CarroPageState();
+}
+
+class _CarroPageState extends State<CarroPage> {
+  final _loripsumApiBloc = LorispumBloc();
+  @override
+  void initState() {
+    _loripsumApiBloc.fetch();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(carro.nome),
+        title: Text(widget.carro.nome),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.place),
@@ -50,7 +63,7 @@ class CarroPage extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: ListView(
         children: <Widget>[
-          Image.network(carro.urlFoto),
+          Image.network(widget.carro.urlFoto),
           _bloco1(),
           Divider(),
           _bloco2(),
@@ -66,9 +79,9 @@ class CarroPage extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            text(carro.nome, fontSize: 20, bold: true),
+            text(widget.carro.nome, fontSize: 20, bold: true),
             text(
-              carro.tipo,
+              widget.carro.tipo,
               fontSize: 16,
             ),
           ],
@@ -122,14 +135,29 @@ class CarroPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        text(carro.descricao, fontSize: 16, bold: true),
+        text(widget.carro.descricao, fontSize: 16, bold: true),
         SizedBox(
           height: 20,
         ),
-        text(
-            "Converters are often used with streams to transform the data that comes through the stream as it becomes available. The following code uses two converters. The first is a UTF-8 decoder, which converts the data from bytes to UTF-8 as it's read from a file, The second is an instance of LineSplitter, which splits the data on newline boundaries.Converters are often used with streams to transform the data that comes through the stream as it becomes available. The following code uses two converters. The first is a UTF-8 decoder, which converts the data from bytes to UTF-8 as it's read from a file, The second is an instance of LineSplitter, which splits the data on newline boundaries.Converters are often used with streams to transform the data that comes through the stream as it becomes available. The following code uses two converters. The first is a UTF-8 decoder, which converts the data from bytes to UTF-8 as it's read from a file, The second is an instance of LineSplitter, which splits the data on newline boundaries.Converters are often used with streams to transform the data that comes through the stream as it becomes available. The following code uses two converters. The first is a UTF-8 decoder, which converts the data from bytes to UTF-8 as it's read from a file, The second is an instance of LineSplitter, which splits the data on newline boundaries.Converters are often used with streams to transform the data that comes through the stream as it becomes available. The following code uses two converters. The first is a UTF-8 decoder, which converts the data from bytes to UTF-8 as it's read from a file, The second is an instance of LineSplitter, which splits the data on newline boundaries.",
-            fontSize: 16),
+        StreamBuilder<String>(
+          stream: _loripsumApiBloc.stream,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return text(snapshot.data, fontSize: 16);
+          },
+        ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _loripsumApiBloc.dispose();
   }
 }
