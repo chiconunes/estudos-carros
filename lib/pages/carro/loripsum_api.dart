@@ -2,10 +2,12 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 
 class LorispumBloc {
+  static String lorim; //-- variavel para cache
   final _streamController = StreamController<String>();
   Stream<String> get stream => _streamController.stream;
   fetch() async {
-    String s = await LorispumApi.getLirpsum();
+    String s = lorim ?? await LorispumApi.getLirpsum();
+    lorim = s;
     _streamController.add(s);
   }
 
