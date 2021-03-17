@@ -1,5 +1,5 @@
-import 'package:carros/pages/carro/carros_api.dart';
-import 'package:carros/pages/carro/carros_pages.dart';
+import 'package:carros/pages/carros/carros_api.dart';
+import 'package:carros/pages/carros/carros_pages.dart';
 import 'package:carros/utils/prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:carros/widgets/drawer_list.dart';
