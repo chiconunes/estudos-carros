@@ -33,7 +33,8 @@ class CarrosListView extends StatelessWidget {
                 children: <Widget>[
                   Center(
                     child: Image.network(
-                      c.urlFoto,
+                      c.urlFoto ??
+                          "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Koenigsegg_CCX.png",
                       width: 250,
                     ),
                   ),
