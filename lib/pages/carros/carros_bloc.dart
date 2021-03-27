@@ -19,7 +19,7 @@ class CarrosBloc extends SimpleBloc<List<Carro>> {
         if (carros.isNotEmpty) {
           final dao = CarroDAO();
 
-          /* ou faz for assim  */
+          /* ou faz for assim */
           // for (Carro c in carros) {
           //   dao.save(c);
           // }
