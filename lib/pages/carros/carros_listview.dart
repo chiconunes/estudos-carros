@@ -36,6 +36,8 @@ class CarrosListView extends StatelessWidget {
                     child: CachedNetworkImage(
                       imageUrl: c.urlFoto ??
                           "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Koenigsegg_CCX.png",
+                      // imageUrl:
+                      //     "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Koenigsegg_CCX.png",
                       width: 250,
                     ),
                   ),

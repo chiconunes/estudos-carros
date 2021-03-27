@@ -37,7 +37,8 @@ class Carro extends Entity {
     data['nome'] = this.nome;
     data['tipo'] = this.tipo;
     data['descricao'] = this.descricao;
-    data['urlFoto'] = this.urlFoto;
+    data['urlFoto'] = this.urlFoto ??
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tudocelular.com%2Fcuriosidade%2Fnoticias%2Fn172335%2Fgoogle-corrige-falha-android-apps.html&psig=AOvVaw3dzW0DYWFSgDtabeHHlxWV&ust=1616718213330000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjuo6SXyu8CFQAAAAAdAAAAABAJ";
     data['urlVideo'] = this.urlVideo;
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;

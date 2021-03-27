@@ -27,16 +27,17 @@ class DatabaseHelper {
     print("db $path");
 
     var db = await openDatabase(path,
-        version: 4, onCreate: _onCreate, onUpgrade: _onUpgrade);
+        version: 2, onCreate: _onCreate, onUpgrade: _onUpgrade);
     return db;
   }
 
   void _onCreate(Database db, int newVersion) async {
     String s = await rootBundle.loadString("assets/sql/create.sql");
-    List<String> sqls = s.split(';');
+    List<String> sqls = s.split(";");
     for (String sql in sqls) {
       if (sql.trim().isNotEmpty) {
-        await db.execute(s);
+        print("sql $sql");
+        await db.execute(sql);
       }
     }
   }
@@ -45,7 +46,7 @@ class DatabaseHelper {
       Database db, int oldVersion, int newVersion) async {
     print("_onUpgrade: oldVersion: $oldVersion > newVersion: $newVersion");
 
-    if (newVersion == 2) {
+    if (oldVersion == 1 && newVersion == 2) {
       await db.execute("alter table carro add column NOVA TEXT");
     }
   }
