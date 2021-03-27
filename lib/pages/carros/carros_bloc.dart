@@ -14,6 +14,23 @@ class CarrosBloc extends SimpleBloc<List<Carro>> {
         return carros;
       } else {
         List<Carro> carros = await CarrosApi.getCarros(tipo);
+
+        // Salva dados no sqlli
+        if (carros.isNotEmpty) {
+          final dao = CarroDAO();
+
+          /* ou faz for assim  */
+          // for (Carro c in carros) {
+          //   dao.save(c);
+          // }
+
+          /* ou sintaxe resumida assim */
+          // carros.forEach((c) => dao.save(c));
+
+          /* ou sintaxe direta assim */
+          carros.forEach(dao.save);
+        }
+
         add(carros);
         return carros;
       }

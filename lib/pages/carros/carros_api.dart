@@ -33,18 +33,6 @@ class CarrosApi {
     List list = convert.json.decode(json);
     final carros = list.map<Carro>((map) => Carro.fromMap(map)).toList();
 
-    final dao = CarroDAO();
-
-    /* ou faz for assim  */
-    // for (Carro c in carros) {
-    //   dao.save(c);
-    // }
-
-    /* ou sintaxe resumida assim */
-    // carros.forEach((c) => dao.save(c));
-
-    /* ou sintaxe direta assim */
-    carros.forEach(dao.save);
     return carros;
   }
 }
