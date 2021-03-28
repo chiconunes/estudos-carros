@@ -10,22 +10,16 @@ class Carro extends Entity {
   String latitude;
   String longitude;
 
-  Carro(
-      {this.id,
-      this.nome,
-      this.tipo,
-      this.descricao,
-      this.urlFoto,
-      this.urlVideo,
-      this.latitude,
-      this.longitude});
+  Carro(this.id, this.nome, this.tipo, this.descricao, this.urlFoto,
+      this.urlVideo, this.latitude, this.longitude);
 
   Carro.fromMap(Map<String, dynamic> json) {
     id = json['id'];
     nome = json['nome'];
     tipo = json['tipo'];
     descricao = json['descricao'];
-    urlFoto = json['urlFoto'];
+    urlFoto = json['urlFoto'] ??
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAFxjSp8kWiearwYXAc7Pt5QFQ_XesoGWuA&usqp=CAU";
     urlVideo = json['urlVideo'];
     latitude = json['latitude'];
     longitude = json['longitude'];
