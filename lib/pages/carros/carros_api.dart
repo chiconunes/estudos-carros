@@ -9,6 +9,7 @@ class TipoCarro {
   static final String classicos = "classicos";
   static final String esportivos = "esportivos";
   static final String luxo = "luxo";
+  static final String favoritos = "favoritos";
 }
 
 class CarrosApi {
